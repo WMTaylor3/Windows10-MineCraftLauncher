@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace MineCraft_Server_Launcher_Class
 {
-	class ServerList
+	public class ServerList
 	{
 		private string _serversDirectory = System.AppDomain.CurrentDomain.BaseDirectory;
-		private List<Server> _servers;
+		private List<Server> _servers = new List<Server>();
 
 		public List<Server> Servers
 		{
@@ -24,9 +24,12 @@ namespace MineCraft_Server_Launcher_Class
 			}
 		}
 
-		public ServerList() { }
+		public ServerList()
+		{
+			populateList();
+		}
 
-		public void populateList()
+		private void populateList()
 		{
 			string[] serverNames = System.IO.Directory.GetDirectories(_serversDirectory);
 			foreach (string directory in Directory.GetDirectories(_serversDirectory))

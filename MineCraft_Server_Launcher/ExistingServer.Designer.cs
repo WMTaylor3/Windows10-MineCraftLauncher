@@ -33,7 +33,7 @@
 			this.groupDelete = new System.Windows.Forms.GroupBox();
 			this.btnDeleteDelete = new System.Windows.Forms.Button();
 			this.lblDeleteServer = new System.Windows.Forms.Label();
-			this.comboDelete = new System.Windows.Forms.ComboBox();
+			this.comboDeleteServer = new System.Windows.Forms.ComboBox();
 			this.groupModify = new System.Windows.Forms.GroupBox();
 			this.btnModifySelect = new System.Windows.Forms.Button();
 			this.comboModifyDifficulty = new System.Windows.Forms.ComboBox();
@@ -44,7 +44,7 @@
 			this.radioModifyModeCreative = new System.Windows.Forms.RadioButton();
 			this.radioModifyModeSurvival = new System.Windows.Forms.RadioButton();
 			this.lblModifyServer = new System.Windows.Forms.Label();
-			this.comboModifyName = new System.Windows.Forms.ComboBox();
+			this.comboModifyServer = new System.Windows.Forms.ComboBox();
 			this.groupResume = new System.Windows.Forms.GroupBox();
 			this.lblResumeServer = new System.Windows.Forms.Label();
 			this.btnResumeResume = new System.Windows.Forms.Button();
@@ -59,7 +59,7 @@
 			// 
 			this.lblMainTitle.AutoSize = true;
 			this.lblMainTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
-			this.lblMainTitle.Location = new System.Drawing.Point(104, 16);
+			this.lblMainTitle.Location = new System.Drawing.Point(216, 16);
 			this.lblMainTitle.Name = "lblMainTitle";
 			this.lblMainTitle.Size = new System.Drawing.Size(365, 39);
 			this.lblMainTitle.TabIndex = 0;
@@ -70,24 +70,24 @@
 			this.fmt1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.fmt1.Location = new System.Drawing.Point(-8, 72);
 			this.fmt1.Name = "fmt1";
-			this.fmt1.Size = new System.Drawing.Size(592, 2);
+			this.fmt1.Size = new System.Drawing.Size(810, 2);
 			this.fmt1.TabIndex = 1;
 			// 
 			// groupDelete
 			// 
 			this.groupDelete.Controls.Add(this.btnDeleteDelete);
 			this.groupDelete.Controls.Add(this.lblDeleteServer);
-			this.groupDelete.Controls.Add(this.comboDelete);
+			this.groupDelete.Controls.Add(this.comboDeleteServer);
 			this.groupDelete.Location = new System.Drawing.Point(0, 80);
 			this.groupDelete.Name = "groupDelete";
-			this.groupDelete.Size = new System.Drawing.Size(192, 360);
+			this.groupDelete.Size = new System.Drawing.Size(266, 336);
 			this.groupDelete.TabIndex = 3;
 			this.groupDelete.TabStop = false;
 			this.groupDelete.Text = "Delete Server";
 			// 
 			// btnDeleteDelete
 			// 
-			this.btnDeleteDelete.Location = new System.Drawing.Point(48, 320);
+			this.btnDeleteDelete.Location = new System.Drawing.Point(80, 296);
 			this.btnDeleteDelete.Name = "btnDeleteDelete";
 			this.btnDeleteDelete.Size = new System.Drawing.Size(96, 23);
 			this.btnDeleteDelete.TabIndex = 10;
@@ -104,14 +104,14 @@
 			this.lblDeleteServer.TabIndex = 4;
 			this.lblDeleteServer.Text = "Server:";
 			// 
-			// comboDelete
+			// comboDeleteServer
 			// 
-			this.comboDelete.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.comboDelete.FormattingEnabled = true;
-			this.comboDelete.Location = new System.Drawing.Point(16, 48);
-			this.comboDelete.Name = "comboDelete";
-			this.comboDelete.Size = new System.Drawing.Size(160, 21);
-			this.comboDelete.TabIndex = 0;
+			this.comboDeleteServer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboDeleteServer.FormattingEnabled = true;
+			this.comboDeleteServer.Location = new System.Drawing.Point(16, 48);
+			this.comboDeleteServer.Name = "comboDeleteServer";
+			this.comboDeleteServer.Size = new System.Drawing.Size(232, 21);
+			this.comboDeleteServer.TabIndex = 0;
 			// 
 			// groupModify
 			// 
@@ -122,17 +122,17 @@
 			this.groupModify.Controls.Add(this.checkModifyMonsters);
 			this.groupModify.Controls.Add(this.groupModifyMode);
 			this.groupModify.Controls.Add(this.lblModifyServer);
-			this.groupModify.Controls.Add(this.comboModifyName);
-			this.groupModify.Location = new System.Drawing.Point(192, 80);
+			this.groupModify.Controls.Add(this.comboModifyServer);
+			this.groupModify.Location = new System.Drawing.Point(264, 80);
 			this.groupModify.Name = "groupModify";
-			this.groupModify.Size = new System.Drawing.Size(192, 360);
+			this.groupModify.Size = new System.Drawing.Size(266, 336);
 			this.groupModify.TabIndex = 5;
 			this.groupModify.TabStop = false;
 			this.groupModify.Text = "Modify Server";
 			// 
 			// btnModifySelect
 			// 
-			this.btnModifySelect.Location = new System.Drawing.Point(48, 88);
+			this.btnModifySelect.Location = new System.Drawing.Point(88, 88);
 			this.btnModifySelect.Name = "btnModifySelect";
 			this.btnModifySelect.Size = new System.Drawing.Size(96, 23);
 			this.btnModifySelect.TabIndex = 19;
@@ -144,14 +144,19 @@
 			// 
 			this.comboModifyDifficulty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboModifyDifficulty.FormattingEnabled = true;
-			this.comboModifyDifficulty.Location = new System.Drawing.Point(16, 240);
+			this.comboModifyDifficulty.Items.AddRange(new object[] {
+            "Peaceful",
+            "Easy",
+            "Moderate",
+            "Hard"});
+			this.comboModifyDifficulty.Location = new System.Drawing.Point(16, 216);
 			this.comboModifyDifficulty.Name = "comboModifyDifficulty";
-			this.comboModifyDifficulty.Size = new System.Drawing.Size(160, 21);
+			this.comboModifyDifficulty.Size = new System.Drawing.Size(240, 21);
 			this.comboModifyDifficulty.TabIndex = 18;
 			// 
 			// btnModifyModify
 			// 
-			this.btnModifyModify.Location = new System.Drawing.Point(48, 320);
+			this.btnModifyModify.Location = new System.Drawing.Point(88, 296);
 			this.btnModifyModify.Name = "btnModifyModify";
 			this.btnModifyModify.Size = new System.Drawing.Size(96, 23);
 			this.btnModifyModify.TabIndex = 17;
@@ -162,7 +167,7 @@
 			// lblModifyDifficulty
 			// 
 			this.lblModifyDifficulty.AutoSize = true;
-			this.lblModifyDifficulty.Location = new System.Drawing.Point(16, 224);
+			this.lblModifyDifficulty.Location = new System.Drawing.Point(16, 200);
 			this.lblModifyDifficulty.Name = "lblModifyDifficulty";
 			this.lblModifyDifficulty.Size = new System.Drawing.Size(47, 13);
 			this.lblModifyDifficulty.TabIndex = 16;
@@ -171,7 +176,7 @@
 			// checkModifyMonsters
 			// 
 			this.checkModifyMonsters.AutoSize = true;
-			this.checkModifyMonsters.Location = new System.Drawing.Point(16, 280);
+			this.checkModifyMonsters.Location = new System.Drawing.Point(16, 256);
 			this.checkModifyMonsters.Name = "checkModifyMonsters";
 			this.checkModifyMonsters.Size = new System.Drawing.Size(69, 17);
 			this.checkModifyMonsters.TabIndex = 14;
@@ -184,7 +189,7 @@
 			this.groupModifyMode.Controls.Add(this.radioModifyModeSurvival);
 			this.groupModifyMode.Location = new System.Drawing.Point(16, 128);
 			this.groupModifyMode.Name = "groupModifyMode";
-			this.groupModifyMode.Size = new System.Drawing.Size(160, 80);
+			this.groupModifyMode.Size = new System.Drawing.Size(240, 56);
 			this.groupModifyMode.TabIndex = 13;
 			this.groupModifyMode.TabStop = false;
 			this.groupModifyMode.Text = "Mode:";
@@ -192,7 +197,7 @@
 			// radioModifyModeCreative
 			// 
 			this.radioModifyModeCreative.AutoSize = true;
-			this.radioModifyModeCreative.Location = new System.Drawing.Point(16, 48);
+			this.radioModifyModeCreative.Location = new System.Drawing.Point(168, 24);
 			this.radioModifyModeCreative.Name = "radioModifyModeCreative";
 			this.radioModifyModeCreative.Size = new System.Drawing.Size(64, 17);
 			this.radioModifyModeCreative.TabIndex = 1;
@@ -220,23 +225,23 @@
 			this.lblModifyServer.TabIndex = 5;
 			this.lblModifyServer.Text = "Server:";
 			// 
-			// comboModifyName
+			// comboModifyServer
 			// 
-			this.comboModifyName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.comboModifyName.FormattingEnabled = true;
-			this.comboModifyName.Location = new System.Drawing.Point(16, 48);
-			this.comboModifyName.Name = "comboModifyName";
-			this.comboModifyName.Size = new System.Drawing.Size(160, 21);
-			this.comboModifyName.TabIndex = 1;
+			this.comboModifyServer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboModifyServer.FormattingEnabled = true;
+			this.comboModifyServer.Location = new System.Drawing.Point(16, 48);
+			this.comboModifyServer.Name = "comboModifyServer";
+			this.comboModifyServer.Size = new System.Drawing.Size(232, 21);
+			this.comboModifyServer.TabIndex = 1;
 			// 
 			// groupResume
 			// 
 			this.groupResume.Controls.Add(this.lblResumeServer);
 			this.groupResume.Controls.Add(this.btnResumeResume);
 			this.groupResume.Controls.Add(this.comboResumeServer);
-			this.groupResume.Location = new System.Drawing.Point(384, 80);
+			this.groupResume.Location = new System.Drawing.Point(528, 80);
 			this.groupResume.Name = "groupResume";
-			this.groupResume.Size = new System.Drawing.Size(192, 360);
+			this.groupResume.Size = new System.Drawing.Size(266, 336);
 			this.groupResume.TabIndex = 6;
 			this.groupResume.TabStop = false;
 			this.groupResume.Text = "Resume Server";
@@ -252,7 +257,7 @@
 			// 
 			// btnResumeResume
 			// 
-			this.btnResumeResume.Location = new System.Drawing.Point(48, 320);
+			this.btnResumeResume.Location = new System.Drawing.Point(88, 296);
 			this.btnResumeResume.Name = "btnResumeResume";
 			this.btnResumeResume.Size = new System.Drawing.Size(96, 23);
 			this.btnResumeResume.TabIndex = 12;
@@ -266,14 +271,14 @@
 			this.comboResumeServer.FormattingEnabled = true;
 			this.comboResumeServer.Location = new System.Drawing.Point(16, 48);
 			this.comboResumeServer.Name = "comboResumeServer";
-			this.comboResumeServer.Size = new System.Drawing.Size(160, 21);
+			this.comboResumeServer.Size = new System.Drawing.Size(232, 21);
 			this.comboResumeServer.TabIndex = 11;
 			// 
 			// ExistingServer
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(576, 439);
+			this.ClientSize = new System.Drawing.Size(794, 416);
 			this.Controls.Add(this.groupResume);
 			this.Controls.Add(this.groupModify);
 			this.Controls.Add(this.groupDelete);
@@ -304,7 +309,7 @@
 		private System.Windows.Forms.GroupBox groupResume;
 		private System.Windows.Forms.Button btnDeleteDelete;
 		private System.Windows.Forms.Label lblDeleteServer;
-		private System.Windows.Forms.ComboBox comboDelete;
+		private System.Windows.Forms.ComboBox comboDeleteServer;
 		private System.Windows.Forms.Button btnModifyModify;
 		private System.Windows.Forms.Label lblModifyDifficulty;
 		private System.Windows.Forms.CheckBox checkModifyMonsters;
@@ -312,7 +317,7 @@
 		private System.Windows.Forms.RadioButton radioModifyModeCreative;
 		private System.Windows.Forms.RadioButton radioModifyModeSurvival;
 		private System.Windows.Forms.Label lblModifyServer;
-		private System.Windows.Forms.ComboBox comboModifyName;
+		private System.Windows.Forms.ComboBox comboModifyServer;
 		private System.Windows.Forms.Label lblResumeServer;
 		private System.Windows.Forms.Button btnResumeResume;
 		private System.Windows.Forms.ComboBox comboResumeServer;

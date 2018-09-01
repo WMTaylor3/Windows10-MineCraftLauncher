@@ -63,7 +63,7 @@
 			this.groupCreate.Controls.Add(this.txtCreateName);
 			this.groupCreate.Location = new System.Drawing.Point(0, 80);
 			this.groupCreate.Name = "groupCreate";
-			this.groupCreate.Size = new System.Drawing.Size(192, 432);
+			this.groupCreate.Size = new System.Drawing.Size(266, 408);
 			this.groupCreate.TabIndex = 3;
 			this.groupCreate.TabStop = false;
 			this.groupCreate.Text = "Create Server";
@@ -71,15 +71,15 @@
 			// comboCreateDifficulty
 			// 
 			this.comboCreateDifficulty.FormattingEnabled = true;
-			this.comboCreateDifficulty.Location = new System.Drawing.Point(16, 312);
+			this.comboCreateDifficulty.Location = new System.Drawing.Point(16, 288);
 			this.comboCreateDifficulty.Name = "comboCreateDifficulty";
-			this.comboCreateDifficulty.Size = new System.Drawing.Size(160, 21);
+			this.comboCreateDifficulty.Size = new System.Drawing.Size(232, 21);
 			this.comboCreateDifficulty.TabIndex = 13;
 			// 
 			// lblCreateDifficulty
 			// 
 			this.lblCreateDifficulty.AutoSize = true;
-			this.lblCreateDifficulty.Location = new System.Drawing.Point(16, 296);
+			this.lblCreateDifficulty.Location = new System.Drawing.Point(16, 272);
 			this.lblCreateDifficulty.Name = "lblCreateDifficulty";
 			this.lblCreateDifficulty.Size = new System.Drawing.Size(47, 13);
 			this.lblCreateDifficulty.TabIndex = 12;
@@ -87,7 +87,7 @@
 			// 
 			// btnCreateCreate
 			// 
-			this.btnCreateCreate.Location = new System.Drawing.Point(48, 392);
+			this.btnCreateCreate.Location = new System.Drawing.Point(88, 368);
 			this.btnCreateCreate.Name = "btnCreateCreate";
 			this.btnCreateCreate.Size = new System.Drawing.Size(96, 23);
 			this.btnCreateCreate.TabIndex = 9;
@@ -97,7 +97,7 @@
 			// checkCreateMonsters
 			// 
 			this.checkCreateMonsters.AutoSize = true;
-			this.checkCreateMonsters.Location = new System.Drawing.Point(16, 352);
+			this.checkCreateMonsters.Location = new System.Drawing.Point(16, 328);
 			this.checkCreateMonsters.Name = "checkCreateMonsters";
 			this.checkCreateMonsters.Size = new System.Drawing.Size(69, 17);
 			this.checkCreateMonsters.TabIndex = 8;
@@ -110,7 +110,7 @@
 			this.groupCreateMode.Controls.Add(this.radioCreateModeSurvival);
 			this.groupCreateMode.Location = new System.Drawing.Point(16, 200);
 			this.groupCreateMode.Name = "groupCreateMode";
-			this.groupCreateMode.Size = new System.Drawing.Size(160, 80);
+			this.groupCreateMode.Size = new System.Drawing.Size(232, 56);
 			this.groupCreateMode.TabIndex = 6;
 			this.groupCreateMode.TabStop = false;
 			this.groupCreateMode.Text = "Mode:";
@@ -118,7 +118,7 @@
 			// radioCreateModeCreative
 			// 
 			this.radioCreateModeCreative.AutoSize = true;
-			this.radioCreateModeCreative.Location = new System.Drawing.Point(16, 48);
+			this.radioCreateModeCreative.Location = new System.Drawing.Point(152, 24);
 			this.radioCreateModeCreative.Name = "radioCreateModeCreative";
 			this.radioCreateModeCreative.Size = new System.Drawing.Size(64, 17);
 			this.radioCreateModeCreative.TabIndex = 1;
@@ -168,21 +168,21 @@
 			// 
 			this.txtCreateSeed.Location = new System.Drawing.Point(16, 160);
 			this.txtCreateSeed.Name = "txtCreateSeed";
-			this.txtCreateSeed.Size = new System.Drawing.Size(160, 20);
+			this.txtCreateSeed.Size = new System.Drawing.Size(232, 20);
 			this.txtCreateSeed.TabIndex = 2;
 			// 
 			// txtCreateSub
 			// 
 			this.txtCreateSub.Location = new System.Drawing.Point(16, 104);
 			this.txtCreateSub.Name = "txtCreateSub";
-			this.txtCreateSub.Size = new System.Drawing.Size(160, 20);
+			this.txtCreateSub.Size = new System.Drawing.Size(232, 20);
 			this.txtCreateSub.TabIndex = 1;
 			// 
 			// txtCreateName
 			// 
 			this.txtCreateName.Location = new System.Drawing.Point(16, 48);
 			this.txtCreateName.Name = "txtCreateName";
-			this.txtCreateName.Size = new System.Drawing.Size(160, 20);
+			this.txtCreateName.Size = new System.Drawing.Size(232, 20);
 			this.txtCreateName.TabIndex = 0;
 			// 
 			// fmt1
@@ -190,14 +190,14 @@
 			this.fmt1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.fmt1.Location = new System.Drawing.Point(0, 72);
 			this.fmt1.Name = "fmt1";
-			this.fmt1.Size = new System.Drawing.Size(592, 2);
+			this.fmt1.Size = new System.Drawing.Size(267, 2);
 			this.fmt1.TabIndex = 5;
 			// 
 			// lblMainTitle
 			// 
 			this.lblMainTitle.AutoSize = true;
 			this.lblMainTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
-			this.lblMainTitle.Location = new System.Drawing.Point(0, 16);
+			this.lblMainTitle.Location = new System.Drawing.Point(32, 16);
 			this.lblMainTitle.Name = "lblMainTitle";
 			this.lblMainTitle.Size = new System.Drawing.Size(195, 39);
 			this.lblMainTitle.TabIndex = 4;
@@ -207,7 +207,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(192, 511);
+			this.ClientSize = new System.Drawing.Size(265, 484);
 			this.Controls.Add(this.fmt1);
 			this.Controls.Add(this.lblMainTitle);
 			this.Controls.Add(this.groupCreate);

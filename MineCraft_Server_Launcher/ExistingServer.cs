@@ -13,11 +13,22 @@ namespace MineCraft_Server_Launcher
 {
 	public partial class ExistingServer : Form
 	{
-		
+		private ServerList _listOfServers = new ServerList();
+
 		public ExistingServer()
 		{
 			InitializeComponent();
-			foreach(Server s in )
+
+			//Populate drop down lists
+			foreach(Server s in _listOfServers.Servers)
+			{
+				if (s.FolderName != "ServerTemplate")
+				{
+					comboDeleteServer.Items.Add(s.Title);
+					comboModifyServer.Items.Add(s.Title);
+					comboResumeServer.Items.Add(s.Title);
+				}
+			}
 		}
 
 		private void btnCreateCreate_Click(object sender, EventArgs e)
