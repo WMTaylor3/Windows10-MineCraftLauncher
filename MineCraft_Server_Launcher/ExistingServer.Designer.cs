@@ -106,6 +106,7 @@
 			// 
 			// comboDelete
 			// 
+			this.comboDelete.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboDelete.FormattingEnabled = true;
 			this.comboDelete.Location = new System.Drawing.Point(16, 48);
 			this.comboDelete.Name = "comboDelete";
@@ -141,6 +142,7 @@
 			// 
 			// comboModifyDifficulty
 			// 
+			this.comboModifyDifficulty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboModifyDifficulty.FormattingEnabled = true;
 			this.comboModifyDifficulty.Location = new System.Drawing.Point(16, 240);
 			this.comboModifyDifficulty.Name = "comboModifyDifficulty";
@@ -220,6 +222,7 @@
 			// 
 			// comboModifyName
 			// 
+			this.comboModifyName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboModifyName.FormattingEnabled = true;
 			this.comboModifyName.Location = new System.Drawing.Point(16, 48);
 			this.comboModifyName.Name = "comboModifyName";
@@ -259,6 +262,7 @@
 			// 
 			// comboResumeServer
 			// 
+			this.comboResumeServer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboResumeServer.FormattingEnabled = true;
 			this.comboResumeServer.Location = new System.Drawing.Point(16, 48);
 			this.comboResumeServer.Name = "comboResumeServer";

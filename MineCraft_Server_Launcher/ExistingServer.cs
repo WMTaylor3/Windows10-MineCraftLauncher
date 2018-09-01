@@ -13,10 +13,11 @@ namespace MineCraft_Server_Launcher
 {
 	public partial class ExistingServer : Form
 	{
-		private List<Server> _servers;
+		
 		public ExistingServer()
 		{
 			InitializeComponent();
+			foreach(Server s in )
 		}
 
 		private void btnCreateCreate_Click(object sender, EventArgs e)
