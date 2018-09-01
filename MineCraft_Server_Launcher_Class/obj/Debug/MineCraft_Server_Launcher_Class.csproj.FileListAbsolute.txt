@@ -1,0 +1,5 @@
+D:\William Taylor\Google Drive\MineCraftServers\Launcher\MineCraft_Server_Launcher\MineCraft_Server_Launcher_Class\bin\Debug\MineCraft_Server_Launcher_Class.dll
+D:\William Taylor\Google Drive\MineCraftServers\Launcher\MineCraft_Server_Launcher\MineCraft_Server_Launcher_Class\bin\Debug\MineCraft_Server_Launcher_Class.pdb
+D:\William Taylor\Google Drive\MineCraftServers\Launcher\MineCraft_Server_Launcher\MineCraft_Server_Launcher_Class\obj\Debug\MineCraft_Server_Launcher_Class.csproj.CoreCompileInputs.cache
+D:\William Taylor\Google Drive\MineCraftServers\Launcher\MineCraft_Server_Launcher\MineCraft_Server_Launcher_Class\obj\Debug\MineCraft_Server_Launcher_Class.dll
+D:\William Taylor\Google Drive\MineCraftServers\Launcher\MineCraft_Server_Launcher\MineCraft_Server_Launcher_Class\obj\Debug\MineCraft_Server_Launcher_Class.pdb
