@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace MineCraft_Server_Launcher_Class
 {
@@ -30,6 +31,15 @@ namespace MineCraft_Server_Launcher_Class
 		//Constructor
 		public ServerList()
 		{
+			using (var folderDialog = new FolderBrowserDialog())
+			{
+				folderDialog.SelectedPath = @"D:\William Taylor\Google Drive\MineCraftServers";
+				if (folderDialog.ShowDialog() == DialogResult.OK)
+				{
+					_serversDirectory = folderDialog.SelectedPath;
+				}
+			}
+
 			RepopulateListWithExistingServerDirectorys();
 		}
 
