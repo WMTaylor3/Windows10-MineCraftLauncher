@@ -107,21 +107,7 @@ namespace MineCraft_Server_Launcher_Class
 			Directory.Delete(_serversDirectory + "\\" + folderName, true);
 		}
 
-		//Returns servers modifiable parameters states.
-		public void RetrieveServersModifiableProperties(string serverTitle, out byte mode, out byte difficulty, out bool monsters)
-		{
-			Server editingServer = _servers.Find(x => String.Equals(x.Title, serverTitle));
-			mode = editingServer.Mode;
-			difficulty = editingServer.Difficulty;
-			monsters = editingServer.Monsters;
-		}
-
-		//Updates servers parameters based on arguments passed to it.
-		public void UpdateServersModifiableProperties(string serverTitle, byte mode, byte difficulty, bool monsters)
-		{
-			Server editingServer = _servers.Find(x => String.Equals(x.Title, serverTitle));
-			editingServer.UpdateModifiablePropertiesFromFrontEnd(mode, difficulty, monsters);
-		}
+		//Modifys
 
 		//Tells the server to start by calling its resume command on a CMD process.
 		public void BeginServer(string serverTitle)

@@ -22,57 +22,6 @@ namespace MineCraft_Server_Launcher
 			RepopulateComboBoxes();
 		}
 
-		private void btnDeleteDelete_Click(object sender, EventArgs e)
-		{
-			if (MessageBox.Show("Are you sure you want to delete the server" + Environment.NewLine + comboDeleteServer.Text + "?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-			{
-				_listOfServers.DeleteServer(comboDeleteServer.Text);
-				RepopulateComboBoxes();
-			}
-		}
-
-		private void btnModifySelect_Click(object sender, EventArgs e)
-		{
-			PushStateOfInterfaceComponents();
-		}
-
-		private void btnModifyModify_Click(object sender, EventArgs e)
-		{
-			if (FormValidityCheck())
-			{
-				byte mode = 0;
-				byte difficulty = 0;
-				bool monsters = false;
-
-				PullStateOfInterfaceComponents(out mode, out difficulty, out monsters);
-				_listOfServers.UpdateServersModifiableProperties(comboModifyServer.Text, mode, difficulty, monsters);
-			}
-			else
-			{
-				MessageBox.Show("Invalid Parameters", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
-		}
-
-		private void btnResumeResume_Click(object sender, EventArgs e)
-		{
-			_listOfServers.BeginServer(comboResumeServer.Text);
-		}
-
-		private void comboDeleteServer_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			ClearModifySection();
-		}
-
-		private void comboModifyServer_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			ClearModifySection();
-		}
-
-		private void comboResumeServer_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			ClearModifySection();
-		}
-
 		private void RepopulateComboBoxes()
 		{
 			comboDeleteServer.Items.Clear();
@@ -89,99 +38,28 @@ namespace MineCraft_Server_Launcher
 			}
 		}
 
-		private void PushStateOfInterfaceComponents()
+		private void btnDeleteDelete_Click(object sender, EventArgs e)
 		{
-			byte mode = 0;
-			byte difficulty = 0;
-			bool monsters = false;
-
-			_listOfServers.RetrieveServersModifiableProperties(comboModifyServer.Text, out mode, out difficulty, out monsters);
-
-			switch(mode)
+			if (MessageBox.Show("Are you sure you want to delete the server" + Environment.NewLine + comboDeleteServer.Text + "?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 			{
-				case 0:
-					radioModifyModeSurvival.Checked = true;
-					radioModifyModeCreative.Checked = false;
-					break;
-				case 1:
-					radioModifyModeSurvival.Checked = false;
-					radioModifyModeCreative.Checked = true;
-					break;
+				_listOfServers.DeleteServer(comboDeleteServer.Text);
+				RepopulateComboBoxes();
 			}
-
-			switch(difficulty)
-			{
-				case 0:
-					comboModifyDifficulty.Text = "Peaceful";
-					break;
-				case 1:
-					comboModifyDifficulty.Text = "Easy";
-					break;
-				case 2:
-					comboModifyDifficulty.Text = "Moderate";
-					break;
-				case 3:
-					comboModifyDifficulty.Text = "Hard";
-					break;
-			}
-
-			checkModifyMonsters.Checked = monsters;
 		}
 
-		private void PullStateOfInterfaceComponents(out byte mode, out byte difficulty, out bool monsters)
+		private void btnModifySelect_Click(object sender, EventArgs e)
 		{
-			switch(radioModifyModeSurvival.Checked)
-			{
-				case false:
-					mode = 1;
-					break;
-				default:
-					mode = 0;
-					break;
-			}
-
-			switch (comboModifyDifficulty.Text)
-			{
-				case "Peaceful":
-					difficulty = 0;
-					break;
-				case "Moderate":
-					difficulty = 2;
-					break;
-				case "Hard":
-					difficulty = 3;
-					break;
-				default:
-					difficulty = 1;
-					break;
-			}
-
-			monsters = checkModifyMonsters.Checked;
+			
 		}
 
-		private void ClearModifySection()
+		private void btnModifyModify_Click(object sender, EventArgs e)
 		{
-			comboModifyServer.SelectedValue = 0;
-			radioModifyModeCreative.Checked = false;
-			radioModifyModeSurvival.Checked = false;
-			comboModifyDifficulty.SelectedValue = 0;
-			checkModifyMonsters.Checked = false;
+
 		}
 
-		private bool FormValidityCheck()
+		private void btnResumeResume_Click(object sender, EventArgs e)
 		{
-			if (
-				(comboModifyServer.Text.Length > 0) &&
-				(groupModifyMode.Controls.OfType<RadioButton>().Any(x => x.Checked)) &&
-				(comboModifyDifficulty.Text.Length > 0)
-			)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+			_listOfServers.BeginServer(comboResumeServer.Text);
 		}
 	}
 }

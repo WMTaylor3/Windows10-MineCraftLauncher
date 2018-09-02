@@ -112,7 +112,6 @@
 			this.comboDeleteServer.Name = "comboDeleteServer";
 			this.comboDeleteServer.Size = new System.Drawing.Size(232, 21);
 			this.comboDeleteServer.TabIndex = 0;
-			this.comboDeleteServer.SelectedIndexChanged += new System.EventHandler(this.comboDeleteServer_SelectedIndexChanged);
 			// 
 			// groupModify
 			// 
@@ -234,7 +233,6 @@
 			this.comboModifyServer.Name = "comboModifyServer";
 			this.comboModifyServer.Size = new System.Drawing.Size(232, 21);
 			this.comboModifyServer.TabIndex = 0;
-			this.comboModifyServer.SelectedIndexChanged += new System.EventHandler(this.comboModifyServer_SelectedIndexChanged);
 			// 
 			// groupResume
 			// 
@@ -275,7 +273,6 @@
 			this.comboResumeServer.Name = "comboResumeServer";
 			this.comboResumeServer.Size = new System.Drawing.Size(232, 21);
 			this.comboResumeServer.TabIndex = 0;
-			this.comboResumeServer.SelectedIndexChanged += new System.EventHandler(this.comboResumeServer_SelectedIndexChanged);
 			// 
 			// ExistingServer
 			// 
