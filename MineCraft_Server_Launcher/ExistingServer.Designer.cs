@@ -90,7 +90,7 @@
 			this.btnDeleteDelete.Location = new System.Drawing.Point(80, 296);
 			this.btnDeleteDelete.Name = "btnDeleteDelete";
 			this.btnDeleteDelete.Size = new System.Drawing.Size(96, 23);
-			this.btnDeleteDelete.TabIndex = 10;
+			this.btnDeleteDelete.TabIndex = 1;
 			this.btnDeleteDelete.Text = "Delete";
 			this.btnDeleteDelete.UseVisualStyleBackColor = true;
 			this.btnDeleteDelete.Click += new System.EventHandler(this.btnDeleteDelete_Click);
@@ -135,7 +135,7 @@
 			this.btnModifySelect.Location = new System.Drawing.Point(88, 88);
 			this.btnModifySelect.Name = "btnModifySelect";
 			this.btnModifySelect.Size = new System.Drawing.Size(96, 23);
-			this.btnModifySelect.TabIndex = 19;
+			this.btnModifySelect.TabIndex = 1;
 			this.btnModifySelect.Text = "Select";
 			this.btnModifySelect.UseVisualStyleBackColor = true;
 			this.btnModifySelect.Click += new System.EventHandler(this.btnModifySelect_Click);
@@ -152,14 +152,14 @@
 			this.comboModifyDifficulty.Location = new System.Drawing.Point(16, 216);
 			this.comboModifyDifficulty.Name = "comboModifyDifficulty";
 			this.comboModifyDifficulty.Size = new System.Drawing.Size(240, 21);
-			this.comboModifyDifficulty.TabIndex = 18;
+			this.comboModifyDifficulty.TabIndex = 3;
 			// 
 			// btnModifyModify
 			// 
 			this.btnModifyModify.Location = new System.Drawing.Point(88, 296);
 			this.btnModifyModify.Name = "btnModifyModify";
 			this.btnModifyModify.Size = new System.Drawing.Size(96, 23);
-			this.btnModifyModify.TabIndex = 17;
+			this.btnModifyModify.TabIndex = 5;
 			this.btnModifyModify.Text = "Modify";
 			this.btnModifyModify.UseVisualStyleBackColor = true;
 			this.btnModifyModify.Click += new System.EventHandler(this.btnModifyModify_Click);
@@ -179,7 +179,7 @@
 			this.checkModifyMonsters.Location = new System.Drawing.Point(16, 256);
 			this.checkModifyMonsters.Name = "checkModifyMonsters";
 			this.checkModifyMonsters.Size = new System.Drawing.Size(69, 17);
-			this.checkModifyMonsters.TabIndex = 14;
+			this.checkModifyMonsters.TabIndex = 4;
 			this.checkModifyMonsters.Text = "Monsters";
 			this.checkModifyMonsters.UseVisualStyleBackColor = true;
 			// 
@@ -190,7 +190,7 @@
 			this.groupModifyMode.Location = new System.Drawing.Point(16, 128);
 			this.groupModifyMode.Name = "groupModifyMode";
 			this.groupModifyMode.Size = new System.Drawing.Size(240, 56);
-			this.groupModifyMode.TabIndex = 13;
+			this.groupModifyMode.TabIndex = 2;
 			this.groupModifyMode.TabStop = false;
 			this.groupModifyMode.Text = "Mode:";
 			// 
@@ -232,7 +232,7 @@
 			this.comboModifyServer.Location = new System.Drawing.Point(16, 48);
 			this.comboModifyServer.Name = "comboModifyServer";
 			this.comboModifyServer.Size = new System.Drawing.Size(232, 21);
-			this.comboModifyServer.TabIndex = 1;
+			this.comboModifyServer.TabIndex = 0;
 			// 
 			// groupResume
 			// 
@@ -260,7 +260,7 @@
 			this.btnResumeResume.Location = new System.Drawing.Point(88, 296);
 			this.btnResumeResume.Name = "btnResumeResume";
 			this.btnResumeResume.Size = new System.Drawing.Size(96, 23);
-			this.btnResumeResume.TabIndex = 12;
+			this.btnResumeResume.TabIndex = 1;
 			this.btnResumeResume.Text = "Resume";
 			this.btnResumeResume.UseVisualStyleBackColor = true;
 			this.btnResumeResume.Click += new System.EventHandler(this.btnResumeResume_Click);
@@ -272,7 +272,7 @@
 			this.comboResumeServer.Location = new System.Drawing.Point(16, 48);
 			this.comboResumeServer.Name = "comboResumeServer";
 			this.comboResumeServer.Size = new System.Drawing.Size(232, 21);
-			this.comboResumeServer.TabIndex = 11;
+			this.comboResumeServer.TabIndex = 0;
 			// 
 			// ExistingServer
 			// 

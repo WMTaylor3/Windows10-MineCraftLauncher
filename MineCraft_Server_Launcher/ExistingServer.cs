@@ -13,11 +13,14 @@ namespace MineCraft_Server_Launcher
 {
 	public partial class ExistingServer : Form
 	{
-		private ServerList _listOfServers = new ServerList();
+		private ServerList _listOfServers;
 
-		public ExistingServer()
+		public ExistingServer(ServerList listOfServers)
 		{
 			InitializeComponent();
+
+			//Copy reference to list of servers.
+			_listOfServers = listOfServers;
 
 			//Populate drop down lists
 			foreach(Server s in _listOfServers.Servers)

@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace MineCraft_Server_Launcher_Class
 {
-    public class Server
-    {
+	public class Server
+	{
 		//Fields
-		private string _folderPath;
 		private string _folderName;
+		private string _completePath;
 		private string _name;
 		private string _tagLine;
 		private string _seed;
@@ -25,10 +25,9 @@ namespace MineCraft_Server_Launcher_Class
 		{
 			get
 			{
-				return _folderName + " (" + _name +")";
+				return _folderName + " (" + _name + ")";
 			}
 		}
-
 		public string FolderName
 		{
 			get
@@ -37,15 +36,15 @@ namespace MineCraft_Server_Launcher_Class
 			}
 		}
 
-
 		//Methods
 		//Constructor for existing servers.
 		public Server(string directory)
 		{
-			pullPropertiesFileContents(directory);
+			_folderName = Path.GetFileName(directory);
+			_completePath = directory;
 
-			_folderPath = directory;
-			_folderName = Path.GetFileName(_folderPath);
+			PullPropertiesFileContents(directory);
+
 			_name = _propertiesFileContents["level-name"];
 			_tagLine = _propertiesFileContents["motd"];
 			_seed = _propertiesFileContents["level-seed"];
@@ -53,7 +52,7 @@ namespace MineCraft_Server_Launcher_Class
 			{
 				Byte.TryParse(_propertiesFileContents["gamemode"], out _mode);
 			}
-			catch(ArgumentException)
+			catch (ArgumentException)
 			{
 				_mode = 0;
 			}
@@ -61,7 +60,7 @@ namespace MineCraft_Server_Launcher_Class
 			{
 				Byte.TryParse(_propertiesFileContents["difficulty"], out _difficulty);
 			}
-			catch(ArgumentException)
+			catch (ArgumentException)
 			{
 				_difficulty = 1;
 			}
@@ -69,24 +68,59 @@ namespace MineCraft_Server_Launcher_Class
 			{
 				Boolean.TryParse(_propertiesFileContents["spawn-monsters"], out _monsters);
 			}
-			catch(ArgumentException)
+			catch (ArgumentException)
 			{
 				_monsters = true;
 			}
 		}
 
 		//Constructor for new servers.
-		public Server(string name, string tagLine, string seed, byte mode, byte difficulty, byte monsters)
+		public Server(string directory, string folderName, string serverName, string tagLine, string seed, byte mode, byte difficulty, bool monsters)
 		{
-			throw new NotImplementedException();
+			_folderName = folderName;
+			_completePath = directory + "\\" + folderName;
+			_name = serverName;
+			_tagLine = tagLine;
+			_seed = seed;
+			_mode = mode;
+			_difficulty = difficulty;
+			_monsters = monsters;
+
+			PullPropertiesFileContents(directory);
+			ModifyPropertiesValues();
+			PushPropertiesValuesToFile();
 		}
 
 		//Reads all the lines out of the servers properties files and stores them in a string array, one array element per file line.
 		//Then splits each array element into a key-value pair and stores it in a dictionary.
-		private void pullPropertiesFileContents(string directory)
+		private void PullPropertiesFileContents(string directory)
 		{
-			string[] file = System.IO.File.ReadAllLines(directory + "\\server.properties");
+			string[] file = System.IO.File.ReadAllLines(_completePath + "\\server.properties");
 			_propertiesFileContents = file.Select(item => item.Split('=')).ToDictionary(x => x[0], y => y[1]);
+		}
+
+		//Modifys the properties values read from the file to be equal to the values stored in the fields.
+		private void ModifyPropertiesValues()
+		{
+			_propertiesFileContents["level-name"] = _name;
+			_propertiesFileContents["motd"] = _tagLine;
+			_propertiesFileContents["level-seed"] = _seed;
+			_propertiesFileContents["gamemode"] = _mode.ToString();
+			_propertiesFileContents["difficulty"] = _difficulty.ToString();
+			_propertiesFileContents["spawn-monsters"] = (_monsters) ? "true" : "false";
+		}
+
+		//Writes the attributes to a server.properties file based on _propertiesFileContents which should have been populated with the template servers contents.
+		private void PushPropertiesValuesToFile()
+		{
+			using (System.IO.StreamWriter file = new System.IO.StreamWriter(_completePath + "\\" + "server.properties"))
+			{
+				foreach (KeyValuePair<string, string> kvp in _propertiesFileContents)
+				{
+					string line = kvp.Key + "=" + kvp.Value;
+					file.WriteLine(line);
+				}
+			}
 		}
 	}
 }
