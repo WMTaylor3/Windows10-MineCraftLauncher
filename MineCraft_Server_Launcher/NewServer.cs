@@ -31,20 +31,21 @@ namespace MineCraft_Server_Launcher
 				//Make directory for new server and copy files.
 				try
 				{
-					//_listOfServers.CreateNewServerDirectory(txtCreateDirectory.Text);
+					_listOfServers.CreateNewServerDirectory(txtCreateDirectory.Text);
 				}
 				catch(Exception error)
 				{
-					MessageBox.Show(error.Message);
+					MessageBox.Show(error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					return;
 				}
-				Wait for the copy to complete, then initialize servers properties file with custom values.
 				PerformInitialization();
 			}
 			else
 			{
-				MessageBox.Show("Please ensure all parameters have been given a value.");
+				MessageBox.Show("Please ensure all parameters have been given a value.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
 			}
+			MessageBox.Show("The server has been sucessfully created", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 
 		//Ensures fields in the form have been populated.

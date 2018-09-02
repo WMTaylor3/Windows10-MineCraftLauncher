@@ -286,7 +286,6 @@
 			this.Controls.Add(this.lblMainTitle);
 			this.Name = "ExistingServer";
 			this.Text = "Existing";
-			this.Load += new System.EventHandler(this.ExistingServer_Load);
 			this.groupDelete.ResumeLayout(false);
 			this.groupDelete.PerformLayout();
 			this.groupModify.ResumeLayout(false);

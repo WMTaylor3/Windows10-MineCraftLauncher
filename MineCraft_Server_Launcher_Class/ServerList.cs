@@ -9,9 +9,11 @@ namespace MineCraft_Server_Launcher_Class
 {
 	public class ServerList
 	{
+		//Fields
 		private string _serversDirectory = System.AppDomain.CurrentDomain.BaseDirectory;
 		private List<Server> _servers = new List<Server>();
 
+		//Properties
 		public List<Server> Servers
 		{
 			get
@@ -24,18 +26,21 @@ namespace MineCraft_Server_Launcher_Class
 			}
 		}
 
+		//Methods
+		//Constructor
 		public ServerList()
 		{
-			PopulateListWithExistingServerDirectorys();
+			RepopulateListWithExistingServerDirectorys();
 		}
 
 		//Populates the list with any existing servers.
-		private void PopulateListWithExistingServerDirectorys()
+		private void RepopulateListWithExistingServerDirectorys()
 		{
+			_servers.Clear();
 			string[] serverNames = System.IO.Directory.GetDirectories(_serversDirectory);
 			foreach (string directory in Directory.GetDirectories(_serversDirectory))
 			{
-				Servers.Add(new Server(directory));
+				_servers.Add(new Server(directory));
 			}
 		}
 
@@ -78,7 +83,27 @@ namespace MineCraft_Server_Launcher_Class
 		//Adds server to Server list.
 		public void InitializeNewServer(string folderName, string serverName, string tagLine, string seed, byte mode, byte difficulty, bool monsters)
 		{
-			Servers.Add(new Server(_serversDirectory, folderName, serverName, tagLine, seed, mode, difficulty, monsters));
+			_servers.Add(new Server(_serversDirectory, folderName, serverName, tagLine, seed, mode, difficulty, monsters));
+		}
+
+		//Deletes the server based on title from the list of servers as well as the directory itself.
+		public void DeleteServer(string serverTitle)
+		{
+			//Delete object and remove from list.
+			_servers.RemoveAll(x => String.Equals(x.Title, serverTitle));
+
+			//Delete files on disk.
+			string folderName = serverTitle.Substring(0, serverTitle.IndexOf(' '));
+			Directory.Delete(_serversDirectory + "\\" + folderName, true);
+		}
+
+		//Modifys
+
+		//Tells the server to start by calling its resume command on a CMD process.
+		public void BeginServer(string serverTitle)
+		{
+			Server runningServer = _servers.Find(x => String.Equals(x.Title, serverTitle));
+			runningServer.Begin();
 		}
 	}
 }

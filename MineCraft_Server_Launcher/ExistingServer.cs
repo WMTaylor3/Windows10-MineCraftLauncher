@@ -18,12 +18,16 @@ namespace MineCraft_Server_Launcher
 		public ExistingServer(ServerList listOfServers)
 		{
 			InitializeComponent();
-
-			//Copy reference to list of servers.
 			_listOfServers = listOfServers;
+			RepopulateComboBoxes();
+		}
 
-			//Populate drop down lists
-			foreach(Server s in _listOfServers.Servers)
+		private void RepopulateComboBoxes()
+		{
+			comboDeleteServer.Items.Clear();
+			comboModifyServer.Items.Clear();
+			comboResumeServer.Items.Clear();
+			foreach (Server s in _listOfServers.Servers)
 			{
 				if (s.FolderName != "ServerTemplate")
 				{
@@ -34,19 +38,18 @@ namespace MineCraft_Server_Launcher
 			}
 		}
 
-		private void btnCreateCreate_Click(object sender, EventArgs e)
-		{
-
-		}
-
 		private void btnDeleteDelete_Click(object sender, EventArgs e)
 		{
-
+			if (MessageBox.Show("Are you sure you want to delete the server" + Environment.NewLine + comboDeleteServer.Text + "?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+			{
+				_listOfServers.DeleteServer(comboDeleteServer.Text);
+				RepopulateComboBoxes();
+			}
 		}
 
 		private void btnModifySelect_Click(object sender, EventArgs e)
 		{
-
+			
 		}
 
 		private void btnModifyModify_Click(object sender, EventArgs e)
@@ -56,17 +59,7 @@ namespace MineCraft_Server_Launcher
 
 		private void btnResumeResume_Click(object sender, EventArgs e)
 		{
-
-		}
-
-		private void PopulateServerLists()
-		{
-
-		}
-
-		private void ExistingServer_Load(object sender, EventArgs e)
-		{
-
+			_listOfServers.BeginServer(comboResumeServer.Text);
 		}
 	}
 }

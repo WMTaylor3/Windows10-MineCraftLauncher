@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -121,6 +122,13 @@ namespace MineCraft_Server_Launcher_Class
 					file.WriteLine(line);
 				}
 			}
+		}
+
+		//Begins the server by passing its start command to a CMD process.
+		public void Begin()
+		{
+			string startCommand = "/C cd " + _completePath + "& java -server -Xmx4096M -Xms4096M -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:+CMSIncrementalPacing -XX:ParallelGCThreads=2 -XX:+AggressiveOpts -jar server.jar nogui";
+			Process.Start("CMD.exe", startCommand);
 		}
 	}
 }
