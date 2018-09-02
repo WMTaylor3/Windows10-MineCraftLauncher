@@ -36,6 +36,27 @@ namespace MineCraft_Server_Launcher_Class
 				return _folderName;
 			}
 		}
+		public byte Mode
+		{
+			get
+			{
+				return _mode;
+			}
+		}
+		public byte Difficulty
+		{
+			get
+			{
+				return _difficulty;
+			}
+		}
+		public bool Monsters
+		{
+			get
+			{
+				return _monsters;
+			}
+		}
 
 		//Methods
 		//Constructor for existing servers.
@@ -44,7 +65,7 @@ namespace MineCraft_Server_Launcher_Class
 			_folderName = Path.GetFileName(directory);
 			_completePath = directory;
 
-			PullPropertiesFileContents(directory);
+			PullPropertiesFileContents();
 
 			_name = _propertiesFileContents["level-name"];
 			_tagLine = _propertiesFileContents["motd"];
@@ -87,21 +108,22 @@ namespace MineCraft_Server_Launcher_Class
 			_difficulty = difficulty;
 			_monsters = monsters;
 
-			PullPropertiesFileContents(directory);
-			ModifyPropertiesValues();
+			PullPropertiesFileContents();
+			ModifyPropertiesValuesInDictionary();
 			PushPropertiesValuesToFile();
 		}
 
 		//Reads all the lines out of the servers properties files and stores them in a string array, one array element per file line.
 		//Then splits each array element into a key-value pair and stores it in a dictionary.
-		private void PullPropertiesFileContents(string directory)
+		private void PullPropertiesFileContents()
 		{
 			string[] file = System.IO.File.ReadAllLines(_completePath + "\\server.properties");
+			file = file.Skip(2).ToArray<string>();
 			_propertiesFileContents = file.Select(item => item.Split('=')).ToDictionary(x => x[0], y => y[1]);
 		}
 
 		//Modifys the properties values read from the file to be equal to the values stored in the fields.
-		private void ModifyPropertiesValues()
+		private void ModifyPropertiesValuesInDictionary()
 		{
 			_propertiesFileContents["level-name"] = _name;
 			_propertiesFileContents["motd"] = _tagLine;
@@ -122,6 +144,23 @@ namespace MineCraft_Server_Launcher_Class
 					file.WriteLine(line);
 				}
 			}
+		}
+
+		//Updates the properties with new values supplied from the front-end.
+		public void UpdateModifiablePropertiesFromFrontEnd(byte mode, byte difficulty, bool monsters)
+		{
+			if((mode >=0) && (mode <= 1))
+			{
+				_mode = mode;
+			}
+			if((difficulty >= 0) && (difficulty <= 3))
+			{
+				_difficulty = difficulty;
+			}
+			_monsters = monsters;
+
+			ModifyPropertiesValuesInDictionary();
+			PushPropertiesValuesToFile();
 		}
 
 		//Begins the server by passing its start command to a CMD process.
