@@ -97,6 +97,7 @@ namespace MineCraft_Server_Launcher_Class
 		private void PullPropertiesFileContents(string directory)
 		{
 			string[] file = System.IO.File.ReadAllLines(_completePath + "\\server.properties");
+			file = file.Skip(2).ToArray<string>();
 			_propertiesFileContents = file.Select(item => item.Split('=')).ToDictionary(x => x[0], y => y[1]);
 		}
 
@@ -127,8 +128,12 @@ namespace MineCraft_Server_Launcher_Class
 		//Begins the server by passing its start command to a CMD process.
 		public void Begin()
 		{
-			string startCommand = "/C cd " + _completePath + "& java -server -Xmx4096M -Xms4096M -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:+CMSIncrementalPacing -XX:ParallelGCThreads=2 -XX:+AggressiveOpts -jar server.jar nogui";
-			Process.Start("CMD.exe", startCommand);
+			Process p = new Process();
+			ProcessStartInfo psi = new ProcessStartInfo();
+			p.StartInfo.FileName = "CMD.EXE";
+			p.StartInfo.Arguments = "/C cd " + _completePath + "& java -server -Xmx4096M -Xms4096M -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:+CMSIncrementalPacing -XX:ParallelGCThreads=2 -XX:+AggressiveOpts -jar server.jar nogui";
+			p.Start();
+			p.WaitForExit();
 		}
 	}
 }
